@@ -177,6 +177,7 @@ class Welle(Frequency):
 
         # Make a horizontal slider to control the frequency.
         axfreq = fig.add_axes([0.25, 0.1, 0.65, 0.03])
+        """
         freq_slider = Slider(
             ax=axfreq,
             label='Frequency [Hz]',
@@ -185,10 +186,15 @@ class Welle(Frequency):
             valinit=3,
         )
 
-        freq_slider.on_changed(self.update)
+        req_slider.on_changed(self.update)
+        """
 
         ax = fig.add_subplot(1, 1, 1, projection='3d')
         ax.plot_surface(x_values, z_values, y_values)
+        ax.set_xlabel("s_x in m")
+        ax.set_ylabel("t in s")
+        ax.set_zlabel("s_y in m")
+    
         plt.show()
 
     def update(self, val):
